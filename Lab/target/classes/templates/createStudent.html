@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<section>
+    <form th:method="POST" th:action="@{/createStudent}">
+       <label for="username">Username</label>
+       <input id="username" type="text" name="username"><br>
+       <label for="password">Password</label>
+       <input id="password" type="password" name="password"><br>
+       <label for="name">Name</label>
+       <input id="name" type="text" name="name"><br>
+       <label for="surname">Surname</label>
+       <input id="surname" type="text" name="surname"><br>
+        <form th:method="POST" th:action="@{/StudentEnrollmentSummary}">
+       <input type="submit" value="Submit" >
+       <a href="/АddStudent">Submit2</a>
+        </form>
+    </form>
+</section>
+</body>
+</html>

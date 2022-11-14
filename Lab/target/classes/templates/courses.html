@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Welcome and Choose a Course</title>
+  <style type="text/css">
+    body {
+      width: 800px;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>Courses List</h1>
+</header>
+<main>
+  <h2>Choose course:</h2>
+  <input type="radio" name="courseId" value="1"> Web programiranje<br/>
+  <input type="radio" name="courseId" value="2"> Operativni sistemi<br/>
+  <input type="radio" name="courseId" value="3"> Elektronska i mobilna trgovija<br/>
+  <input type="radio" name="courseId" value="4"> Kompjuterski mrezi<br/>
+
+  <br/>
+  <a href="/АddStudent">Submit</a>
+
+<!--  <div>
+    <h2>List Courses</h2>
+    <ul>
+      <li th:each="course: ${courses}"><th:block th:text="${course.name}"/>
+    </ul>
+  </div>
+-->
+
+  <h3>List Courses </h3>
+  <div th:each="course : ${courses}" class="course">
+    <ul>
+      <li th:text="${course.getName()}"></li>
+      <form th:action="@{'/courses/delete/{id}'  (id=${course.getId()})}"
+            th:method="delete">
+        <button type="submit">Delete</button>
+      </form>
+      <a th:href="@{'/courses/edit-form/{id}' (id=${course.getId()})}"
+         class="btn btn-sm btn-info edit-product">
+        <button type="submit">Edit</button>
+      </a>
+    </ul>
+  </div>
+
+  <div>
+    <a href="/courses/add-form" >Add new course</a>
+  </div>
+
+</main>
+</body>
+</html>
